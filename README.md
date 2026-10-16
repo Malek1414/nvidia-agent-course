@@ -1,5 +1,11 @@
 # Practice notebooks for the Agentic AI course by Nebius Academy and NVIDIA
 
+> **About this fork:** my working copy of the course. It has completed notebooks with outputs, study notes in [`notes/`](notes/), and my setup in [`SETUP.md`](SETUP.md).
+>
+> | Notebook | Status | Notes |
+> |---|---|---|
+> | Module 1 · 01 Intro to Token Factory | Done | [notes](notes/module-1-notebook-1.md) |
+
 ## Module 1
 
 1. [Intro to Token Factory](https://github.com/Nebius-Academy/ai-agents-nv-notebooks/blob/main/module-1/01_intro_to_token_factory.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](

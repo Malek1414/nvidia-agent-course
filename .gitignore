@@ -1,0 +1,14 @@
+# Secrets — never commit
+.env
+*.env
+!.env.example
+
+# Local Python env
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+
+# Raw video transcripts (Nebius Academy content, kept local)
+video-transcripts/
+
+.DS_Store
