@@ -12,3 +12,6 @@ __pycache__/
 video-transcripts/
 
 .DS_Store
+
+# Official exam guides (Nebius documents, kept local)
+Exam_Guide_*.pdf
