@@ -1,28 +1,30 @@
-# Claude Opus 5 via the Anthropic API — same shape as nemotron_nano.py
-# Auth: uses your `ant auth login` profile, or ANTHROPIC_API_KEY if set
+# Claude Opus 5 via `claude -p` (Claude Code headless mode) — same shape as nemotron_nano.py
+# Runs on your Claude subscription login, so no API credit is needed
 # Run:  .venv/bin/python claude_opus.py
-import anthropic
+import json
+import subprocess
 
-client = anthropic.Anthropic()
+SYSTEM_PROMPT = """SYSTEM_PROMPT"""
+USER_MESSAGE = """USER_MESSAGE"""
 
-response = client.beta.messages.create(
-    model="claude-opus-5",
-    max_tokens=16000,
-    # If a safety classifier declines, re-run on Anthropic's recommended fallback model
-    betas=["server-side-fallback-2026-07-01"],
-    fallbacks="default",
-    system="""SYSTEM_PROMPT""",
-    messages=[
-        {
-            "role": "user",
-            "content": [
-                {
-                    "type": "text",
-                    "text": """USER_MESSAGE"""
-                }
-            ]
-        }
-    ]
+result = subprocess.run(
+    [
+        "claude", "-p",
+        "--model", "claude-opus-5",
+        "--system-prompt", SYSTEM_PROMPT,
+        "--output-format", "json",
+        # Plain model call: no tools, MCP servers, hooks, plugins or saved session.
+        # Without these, every call carries ~134k tokens of Claude Code context instead of ~450.
+        "--tools", "",
+        "--strict-mcp-config",
+        "--setting-sources", "",
+        "--no-session-persistence",
+    ],
+    input=USER_MESSAGE,  # prompt via stdin, so long or multi-line messages are safe
+    capture_output=True,
+    text=True,
+    check=True,
 )
 
-print(response.to_json())
+response = json.loads(result.stdout)
+print(json.dumps(response, indent=2))
