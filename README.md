@@ -5,6 +5,9 @@
 > | Notebook | Status | Notes |
 > |---|---|---|
 > | Module 1 · 01 Intro to Token Factory | Done | [notes](notes/module-1-notebook-1.md) |
+> | Module 1 · 02 Tool Calling | Done | [notes](notes/module-1-notebook-2.md) |
+> | Module 1 · 03 Observability and Cost | Done | [notes](notes/module-1-notebook-3.md) |
+> | Module 1 · Chapter task: file-search agent + 3-model benchmark | Done | [write-up](module-1/chapter-task/README.md) |
 
 ## Module 1
 
